@@ -18,6 +18,11 @@
     box-sizing: border-box;
 }
 
+/* Enable smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Body styling */
 body {
     font-family: 'Poppins', sans-serif;
@@ -347,4 +352,42 @@ body.dark-theme .profile-pic {
         width: 120px;
         height: 120px;
     }
+}
+
+/* Toolkit section (for toolkit.html) */
+.toolkit-section {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toolkit-section h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.toolkit-section p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.toolkit-section pre {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.toolkit-section code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body.dark-theme .toolkit-section pre {
+    background-color: #2a2a3f;
 }
