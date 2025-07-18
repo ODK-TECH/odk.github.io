@@ -59,3 +59,8 @@ nav a {
     list-style: none;
     padding: 0;
 }
+
+nav ul.show {
+    display: flex;
+    flex-direction: column;
+}
