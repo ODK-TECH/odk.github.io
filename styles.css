@@ -124,19 +124,12 @@ section {
     transform: translateY(-5px);
 }
 
-/*.project-card img {
+.project-card img {
     width: 100%;
     border-radius: 8px;
     object-fit: cover;
     height: 160px;
     filter: contrast(105%) brightness(0.98);
-}*/
-
-.project-image {
-  width: 100%;
-  height: auto; /* maintains aspect ratio */
-  object-fit: contain; /* makes sure the whole image fits */
-  display: block;
 }
 
 
