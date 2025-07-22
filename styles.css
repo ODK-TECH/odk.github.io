@@ -225,19 +225,15 @@ section {
 }
 
 
-.resume-link {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
+#cv-preview {
+  margin: 50px auto;
+  max-width: 800px;
+  text-align: center;
 }
 
-.resume-link:hover {
-    background-color: #388e3c;
+#cv-preview h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
 }
 
