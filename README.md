@@ -1,15 +1,15 @@
 # odk.github.io
-Welcome to my personal website!
+Welcome to my website!
 
 This is the official GitHub Pages repository for my portfolio: [odk.github.io](https://odk.github.io).  
-I'm Dominic Obeng Koranteng, a Data Science graduate from AIMS Ghana, passionate about applying machine learning to create innovative and practical solutions in education and agriculture.
+I'm Dominic Obeng Koranteng, a Data Scientist, passionate about applying machine learning to create innovative and practical solutions in all fields.
 
 ## 🌍 About Me
 
 I'm driven by a mission to use AI and data science to solve meaningful problems in communities across Africa. My key areas of work include:
 
 - **Education**: Predictive modeling for student performance to enable data-driven academic interventions.
-- **Agriculture**: AI-powered tools for poultry farming, including behavior analysis and early detection of **Newcastle disease**.
+- **Agriculture**: AI-powered tools for poultry farming, including behavior analysis and early detection of **poultry diseases**.
 
 I enjoy building tools and systems that bridge the gap between cutting-edge research and real-world impact.
 
