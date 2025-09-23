@@ -43,7 +43,11 @@ else {
 const updateThemeIcon = () => {
   const icon = themeToggle.querySelector('i');
   const theme = root.getAttribute('data-theme');
-  if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  if (theme === 'dark') {
+    icon.className = 'fas fa-moon';  // 🌙 in dark mode
+  } else {
+    icon.className = 'fas fa-sun';   // ☀️ in light mode
+  }
 };
 updateThemeIcon();
 
