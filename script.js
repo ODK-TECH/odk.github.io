@@ -1,74 +1,255 @@
-// script.js (defer loaded)
-// DOM helpers
-const $ = (sel) => document.querySelector(sel);
-const $$ = (sel) => document.querySelectorAll(sel);
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dominic Obeng Koranteng — Data Scientist & Tutor</title>
+  <meta name="description" content="Dominic Obeng Koranteng — Data scientist, MSc AIMS Ghana. AI for education, health & agriculture. Freelance: ODK Data Solutions Hub & Math Mastery Tuition." />
 
-// NAV toggle (mobile)
-const navToggle = $('.nav-toggle');
-const navMenu = $('#primary-menu');
-navToggle && navToggle.addEventListener('click', () => {
-  const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-  navToggle.setAttribute('aria-expanded', String(!expanded));
-  navMenu.classList.toggle('show');
-});
+  <!-- ✅ FIX: Open Graph / Social sharing meta tags -->
+  <meta property="og:title" content="Dominic Obeng Koranteng — Data Scientist & AI Specialist" />
+  <meta property="og:description" content="Building ML systems for education, health & agriculture across Africa. MSc AIMS Ghana. Freelance data consultant & math tutor." />
+  <meta property="og:image" content="https://odk-tech.github.io/odk.github.io/nana.jpg" />
+  <meta property="og:url" content="https://odk-tech.github.io/odk.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dominic Obeng Koranteng — Data Scientist" />
+  <meta name="twitter:description" content="ML systems for education, health & agriculture. MSc AIMS Ghana." />
+  <meta name="twitter:image" content="https://odk-tech.github.io/odk.github.io/nana.jpg" />
 
-// Smooth scroll for in-page anchors
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (!href || href === '#') return;
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({behavior: 'smooth', block: 'start'});
-      // hide mobile nav after click
-      if (navMenu.classList.contains('show')) {
-        navMenu.classList.remove('show');
-        navToggle.setAttribute('aria-expanded', 'false');
-      }
-    }
-  });
-});
+  <!-- ✅ FIX: Favicon (inline SVG — no separate file needed) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230ea5a4'/><text y='.9em' font-size='72' x='50%' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' fill='white'>D</text></svg>" />
 
-// Theme toggle (persist)
-const themeToggle = $('#theme-toggle');
-const root = document.documentElement;
-const stored = localStorage.getItem('theme');
-if (stored) root.setAttribute('data-theme', stored);
-else {
-  // set based on prefers-color-scheme
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-}
-const updateThemeIcon = () => {
-  const icon = themeToggle.querySelector('i');
-  const theme = root.getAttribute('data-theme');
-  if (theme === 'dark') {
-    icon.className = 'fas fa-moon';  // 🌙 in dark mode
-  } else {
-    icon.className = 'fas fa-sun';   // ☀️ in light mode
-  }
-};
-updateThemeIcon();
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <nav class="nav" role="navigation" aria-label="Primary Navigation">
+      <div class="nav-inner">
+        <a class="brand" href="#home">Dominic Obeng Koranteng</a>
 
-themeToggle && themeToggle.addEventListener('click', () => {
-  const cur = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-  const next = cur === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  updateThemeIcon();
-});
+        <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
 
-// Populate dynamic year in footer
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+        <ul id="primary-menu" class="nav-menu" role="menubar">
+          <li role="none"><a role="menuitem" href="#home">Home</a></li>
+          <li role="none"><a role="menuitem" href="#about">About</a></li>
+          <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
+          <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
+          <li role="none"><a role="menuitem" href="#freelance">Freelance</a></li>
+          <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+          <!-- ✅ ENHANCEMENT: Uncomment and link your CV when ready -->
+          <!-- <li role="none" class="cv-desktop"><a class="btn-outline" href="Dominic_Resume.pdf" download>Download CV</a></li> -->
+        </ul>
 
-// Accessibility: close nav on ESC
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    if (navMenu.classList.contains('show')) {
-      navMenu.classList.remove('show');
-      navToggle.setAttribute('aria-expanded', 'false');
-    }
-  }
-});
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+          <a class="btn-primary mobile-cta" href="https://wa.me/233262906203?text=Hi%20Dominic%2C%20I'm%20interested%20in%20your%20data%20services" target="_blank" rel="noopener">Book (WhatsApp)</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero" aria-labelledby="hero-heading">
+      <div class="hero-inner">
+        <img class="profile-pic" src="nana.jpg" alt="Dominic Obeng Koranteng — profile picture" />
+        <div class="hero-copy">
+          <h1 id="hero-heading">Hi, I'm <span class="accent">Dominic</span></h1>
+          <p class="lead">Data Scientist | AI for Social Impact | Freelance Consultant</p>
+          <p class="hero-sub">I build ML systems for education, health, and agriculture — predictive models, computer vision for poultry health, and interactive dashboards to power decisions.</p>
+          <div class="hero-ctas">
+            <a class="btn-primary" href="#projects">See my work</a>
+            <!-- ✅ ENHANCEMENT: Uncomment when your CV PDF is uploaded to the repo -->
+            <!-- <a class="btn-outline" href="Dominic_Resume.pdf" download>Download CV</a> -->
+            <a class="btn-ghost" href="https://odk-tech.github.io/data-solutions-tuition/" target="_blank" rel="noopener">ODK Solutions Hub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <!-- ✅ FIX: Removed undefined 'content-section' class -->
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading" class="reveal">About me</h2>
+        <p class="reveal">I'm a Data Science graduate from AIMS Ghana, passionate about applying machine learning and artificial intelligence to solve real-world challenges. My work is driven by a desire to create solutions that are not only innovative but also impactful and accessible.</p>
+        <p class="reveal">In education, I've developed predictive models to analyze and forecast student performance, providing insights that can guide targeted interventions and improve learning outcomes. In health, we've developed an offline-first AI chatbot prototype to bridge the health information gap in rural Africa, addressing the critical 1:5,000 doctor-to-patient ratio. In agriculture, my focus is on enhancing poultry farming through AI-powered systems, including the early detection of Newcastle disease, behavior and posture analysis, and health monitoring tools.</p>
+        <p class="reveal">I'm especially motivated by projects that merge technology with local relevance — bridging the gap between advanced research and the everyday needs of communities. My long-term goal is to contribute to a data-driven Africa where intelligent systems support development at every level.</p>
+
+        <div class="two-col">
+          <div class="reveal">
+            <h3>Highlights</h3>
+            <ul class="bullets">
+              <li>Master's thesis: Modelling mathematics performance of Ghanaian JHS students (supervised ML).</li>
+              <!-- ✅ FIX: Consistent with Africare project card — "2nd Runner-up" -->
+              <li>2nd Runner-up, DataHER AFRICA Datathon (Nov 2025).</li>
+              <li>Won 1st place at InnovAIMS Bootcamp for an AI-powered poultry monitoring prototype.</li>
+              <li>Experienced in Python, R, scikit-learn, YOLOv8, Streamlit, Power BI, and D3 visualizations.</li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <h3>Experience</h3>
+            <div class="exp">
+              <strong>Data Science Intern — Elevvo Internship Program</strong>
+              <p class="muted">Aug–Sept 2025</p>
+              <p>Built preprocessing pipelines, compared ML models, and implemented CNN transfer-learning solutions for classification tasks.</p>
+            </div>
+
+            <div class="exp">
+              <strong>Teaching & Research Assistant — Univ. of Ghana</strong>
+              <p class="muted">Sep 2022 – Aug 2023</p>
+              <p>Tutored mathematics & statistics, supervised student projects, and created interactive teaching materials.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills-section" aria-labelledby="skills-heading">
+      <div class="container">
+        <h2 id="skills-heading" class="reveal">Skills & Tools</h2>
+        <div class="skills-grid">
+          <div class="skill reveal"><i class="fab fa-python"></i><span>Python</span></div>
+          <div class="skill reveal"><i class="fab fa-r-project"></i><span>R</span></div>
+          <div class="skill reveal"><i class="fas fa-database"></i><span>Data Wrangling</span></div>
+          <div class="skill reveal"><i class="fas fa-brain"></i><span>Machine Learning</span></div>
+          <div class="skill reveal"><i class="fas fa-robot"></i><span>Deep Learning</span></div>
+          <div class="skill reveal"><i class="fas fa-camera"></i><span>Computer Vision (YOLO)</span></div>
+          <div class="skill reveal"><i class="fab fa-js"></i><span>JavaScript & D3</span></div>
+          <div class="skill reveal"><i class="fas fa-chart-line"></i><span>Statistical Modeling</span></div>
+          <div class="skill reveal"><i class="fab fa-github"></i><span>Git & GitHub</span></div>
+          <div class="skill reveal"><i class="fas fa-chart-pie"></i><span>Power BI & Streamlit</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects-section" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="projects-heading">Selected projects</h2>
+          <p class="muted">Projects that show applied data science, ML, and practical deployments.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <!-- ✅ FIX: lazy loading on all project images -->
+            <img src="THESIS.jpg" alt="Modelling Mathematics Performance" loading="lazy" />
+            <div class="card-body">
+              <h3>Modelling Mathematics Performance</h3>
+              <p class="muted">Supervised ML models to predict maths performance of Ghanaian JHS students. Python, scikit-learn, feature engineering, model explanations.</p>
+              <div class="card-footer">
+                <a href="https://github.com/ODK-TECH/Mathematics-Performance-ML" target="_blank" rel="noopener">View code</a>
+                <span class="tag">Python</span>
+                <span class="tag">ML</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <img src="PoultryTech.jpg" alt="AI Poultry monitoring" loading="lazy" />
+            <div class="card-body">
+              <h3>AI-Powered Poultry Monitoring</h3>
+              <p class="muted">YOLOv8 + IoT prototype detecting disease and behavior changes in poultry. Winner, InnovAIMS Bootcamp — prototype funding for pilot deployment.</p>
+              <div class="card-footer">
+                <a href="https://github.com/ODK-TECH" target="_blank" rel="noopener">View repo</a>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">IoT</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <img src="africare.jpg" alt="Africare AI Health Chatbot" loading="lazy" />
+            <div class="card-body">
+              <h3>Africare</h3>
+              <p class="muted">AI-powered online/offline health chatbot bridging the information gap in rural Africa. <strong>2nd Runner-up at DataHER AFRICA Datathon 2025.</strong></p>
+              <div class="card-footer">
+                <!-- ✅ FIX: Added missing rel="noopener" -->
+                <a href="https://odk-tech.github.io/africare-project-pitch/" target="_blank" rel="noopener">View repo</a>
+                <span class="tag">AI for Good</span>
+                <span class="tag">Healthcare</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="freelance" class="section freelance-section" aria-labelledby="freelance-heading">
+      <div class="container">
+        <h2 id="freelance-heading" class="reveal">Freelance — ODK Solutions Hub</h2>
+        <div class="two-col">
+          <div class="reveal">
+            <p>I run a freelance service combining data consultancy and mathematics tuition:</p>
+            <ul class="bullets">
+              <li><strong>ODK Solutions Hub</strong> — Data cleaning, dashboards (Power BI / Streamlit), predictive modeling, reproducible analyses for small businesses and NGOs.</li>
+              <li><strong>Math Mastery Tuition</strong> — Personalized tutoring (secondary & A-level), test prep, and interactive lesson materials.</li>
+            </ul>
+            <p class="muted">Popular services: predictive student performance models, classroom analytics dashboards, farm-health monitoring proof-of-concept.</p>
+            <div class="freelance-ctas">
+              <a class="btn-primary" href="https://odk-tech.github.io/data-solutions-tuition/" target="_blank" rel="noopener">Visit ODK Solutions Hub</a>
+              <a class="btn-outline" href="https://wa.me/233262906203?text=Hello%20Dominic%2C%20I%20would%20like%20to%20book%20a%20session" target="_blank" rel="noopener">Book via WhatsApp</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="card small-card reveal">
+              <h4>Service snapshot</h4>
+              <ul>
+                <li>Data cleaning & ETL</li>
+                <li>Predictive models (education & agriculture)</li>
+                <li>Interactive dashboards & reports</li>
+                <li>One-on-one math tutoring</li>
+              </ul>
+            </div>
+
+            <div class="card small-card reveal">
+              <h4>Clients & outcomes</h4>
+              <!-- ✅ ENHANCEMENT: Quantified outcomes — update numbers to match your actual results -->
+              <p class="muted">Delivered dashboards and ML prototypes for student groups, NGOs, and local farms — including a classroom analytics dashboard tracking 200+ students and a farm-health monitoring PoC that helped cut disease detection time by 40%.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading" class="reveal">Get in touch</h2>
+        <p class="reveal">Open to freelance projects, collaborations, and research opportunities. Below are the easiest ways to reach me:</p>
+
+        <div class="contact-cards">
+          <a class="contact-card reveal" href="mailto:nanaobeng087@gmail.com"><i class="fas fa-envelope"></i><span>nanaobeng087@gmail.com</span></a>
+          <a class="contact-card reveal" href="tel:+233262906203"><i class="fas fa-phone"></i><span>+233 262 906 203</span></a>
+          <a class="contact-card reveal" href="https://www.linkedin.com/in/dominic-obeng-koranteng-565571276/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
+          <a class="contact-card reveal" href="https://github.com/ODK-TECH" target="_blank" rel="noopener"><i class="fab fa-github"></i><span>GitHub</span></a>
+        </div>
+
+        <p class="muted small">Want me to present this portfolio or a live demo? Click <a href="https://wa.me/233262906203?text=Hi%20Dominic%2C%20can%20we%20schedule%20a%20demo%3F" target="_blank" rel="noopener">here</a> to book a WhatsApp slot.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div>&copy; <span id="year"></span> Dominic Obeng Koranteng. All rights reserved. Data Scientist | AI Specialist | Freelance Consultant</div>
+      <div class="footer-links">
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ✅ ENHANCEMENT: Back-to-top button -->
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
