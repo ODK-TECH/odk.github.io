@@ -1,7 +1,7 @@
 # odk.github.io
 
 Personal site for **Dominic Obeng Koranteng**, data scientist in Accra, Ghana.
-Machine learning for education, health, and agriculture. Founder of ODK Solutions Hub.
+Machine learning for education, health and agriculture. Founder of ODK Solutions Hub.
 
 Live: <https://odk-tech.github.io/odk.github.io/>
 
@@ -25,6 +25,10 @@ Drop these in the repo root next to `index.html`:
 - `THESIS.jpg` — mathematics performance project, 3:2 landscape
 - `PoultryTech.jpg` — poultry monitoring project, 3:2 landscape
 - `africare.jpg` — Africare project, 3:2 landscape
+- `premix.jpg` — premix fuel dissertation, 3:2 landscape. Export `fig-4-5-forecast.png`
+  from the analysis script in the Premix-Fuel-Price-Analysis repo and crop it to 3:2
+- `mlworkflow.jpg` — breast cancer classifier, 3:2 landscape. A screenshot of the Streamlit
+  prediction form, or of the FastAPI `/docs` page, works well
 
 Missing images fall back to a neutral placeholder block, so nothing breaks while you gather them.
 
