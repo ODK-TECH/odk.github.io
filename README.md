@@ -1,42 +1,78 @@
 # odk.github.io
-Welcome to my website!
 
-This is the official GitHub Pages repository for my portfolio: [odk.github.io](https://odk.github.io).  
-I'm Dominic Obeng Koranteng, a Data Scientist, passionate about applying machine learning to create innovative and practical solutions in all fields.
+Personal site for **Dominic Obeng Koranteng**, data scientist in Accra, Ghana.
+Machine learning for education, health, and agriculture. Founder of ODK Solutions Hub.
 
-## 🌍 About Me
+Live: <https://odk-tech.github.io/odk.github.io/>
 
-I'm driven by a mission to use AI and data science to solve meaningful problems in communities across Africa. My key areas of work include:
+---
 
-- **Education**: Predictive modeling for student performance to enable data-driven academic interventions.
-- **Agriculture**: AI-powered tools for poultry farming, including behavior analysis and early detection of **poultry diseases**.
+## Files
 
-I enjoy building tools and systems that bridge the gap between cutting-edge research and real-world impact.
+| File | What it does |
+| --- | --- |
+| `index.html` | All page content. Edit copy here. |
+| `styles.css` | Design tokens at the top, then components in order. |
+| `script.js` | Theme, menu, scroll axis, reveals. No dependencies. |
 
-## 🛠️ Projects Highlighted on This Site
+Three files, no build step. Push to `main` and GitHub Pages serves it.
 
-- **Student Performance Prediction**  
-  Machine learning models that analyze academic records to identify patterns and forecast student outcomes.
+## Images to add
 
-- **Poultry Monitoring with AI**  
-  Computer vision solutions for detecting posture, inactivity, and disease symptoms in chickens.
+Drop these in the repo root next to `index.html`:
 
-- **Newcastle Disease Early Detection**  
-  A prototype system designed to recognize early signs of Newcastle disease through visual and behavioral cues.
+- `nana.jpg` — portrait, portrait orientation, ideally 1040×1300 or larger
+- `THESIS.jpg` — mathematics performance project, 3:2 landscape
+- `PoultryTech.jpg` — poultry monitoring project, 3:2 landscape
+- `africare.jpg` — Africare project, 3:2 landscape
 
-## 📫 Contact & Links
+Missing images fall back to a neutral placeholder block, so nothing breaks while you gather them.
 
-- [LinkedIn](https://www.linkedin.com/in/dominic-obeng-koranteng-565571276/)
-- [Email](mailto:dobeng@aims.edu.gh)
+## Adding your CV
 
-## ⚙️ Technologies Used
+Put `Dominic_Resume.pdf` in the repo root, then uncomment the download button
+in `index.html` (search for `Dominic_Resume.pdf`).
 
-- Python (Pandas, Scikit-learn, TensorFlow, OpenCV)
-- Jupyter Notebooks
-- HTML/CSS for GitHub Pages
-- YOLOv8 for object detection
-- Git & GitHub for version control
+## Changing the palette
 
+Everything derives from custom properties in `:root` and `[data-theme="dark"]`
+at the top of `styles.css`.
 
+```css
+--bronze:   #C08A2E;   /* accent for rules, ticks and marks */
+--bronze-t: #8A5F12;   /* darker bronze, used wherever accent becomes text */
+--ink:      #14211D;   /* body text and solid buttons */
+--paper:    #F2F3F0;   /* page background */
+```
 
-Feel free to explore the projects showcased here and reach out if you're interested in collaborating or learning more!
+Keep `--bronze-t` darker than `--bronze` in light mode. The lighter tone fails
+contrast at body text sizes.
+
+## Adding a project
+
+Copy one `<article class="entry reveal">` block in the Work section and edit it.
+The layout is a three-column grid: domain label, image, body. It collapses to a
+single column below 760px on its own.
+
+## Type
+
+- **Fraunces** for display, loaded as a variable font
+- **IBM Plex Sans** for body text
+- **IBM Plex Mono** for labels, metadata and buttons
+
+All three come from Google Fonts in a single request.
+
+## Accessibility and performance
+
+- Skip link, visible focus rings, `aria-expanded` on the menu toggle
+- `prefers-reduced-motion` disables the reveals and the underline animation
+- Theme is set before first paint, so no flash on load
+- Project images lazy-load; scroll handlers are throttled with `requestAnimationFrame`
+- Print stylesheet strips the chrome so the page prints as a clean CV
+
+## Contact
+
+- Email: <dominicobengkoranteng@gmail.com>
+- LinkedIn: <https://www.linkedin.com/in/dominic-obeng-koranteng-565571276/>
+- GitHub: <https://github.com/ODK-TECH>
+- ODK Solutions Hub: <https://odksolutionshub.com/>
