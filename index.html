@@ -1,255 +1,406 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dominic Obeng Koranteng — Data Scientist & Tutor</title>
-  <meta name="description" content="Dominic Obeng Koranteng — Data scientist, MSc AIMS Ghana. AI for education, health & agriculture. Freelance: ODK Data Solutions Hub & Math Mastery Tuition." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- ✅ FIX: Open Graph / Social sharing meta tags -->
-  <meta property="og:title" content="Dominic Obeng Koranteng — Data Scientist & AI Specialist" />
-  <meta property="og:description" content="Building ML systems for education, health & agriculture across Africa. MSc AIMS Ghana. Freelance data consultant & math tutor." />
-  <meta property="og:image" content="https://odk-tech.github.io/odk.github.io/nana.jpg" />
-  <meta property="og:url" content="https://odk-tech.github.io/odk.github.io/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Dominic Obeng Koranteng — Data Scientist" />
-  <meta name="twitter:description" content="ML systems for education, health & agriculture. MSc AIMS Ghana." />
-  <meta name="twitter:image" content="https://odk-tech.github.io/odk.github.io/nana.jpg" />
+<title>Dominic Obeng Koranteng · Data Scientist</title>
+<meta name="description" content="Dominic Obeng Koranteng builds machine learning systems for education, health and agriculture in Ghana. MSc, AIMS Ghana. Founder of ODK Solutions Hub.">
+<meta name="author" content="Dominic Obeng Koranteng">
+<meta name="theme-color" content="#14211D">
 
-  <!-- ✅ FIX: Favicon (inline SVG — no separate file needed) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230ea5a4'/><text y='.9em' font-size='72' x='50%' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' fill='white'>D</text></svg>" />
+<link rel="canonical" href="https://odk-tech.github.io/odk.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://odk-tech.github.io/odk.github.io/">
+<meta property="og:title" content="Dominic Obeng Koranteng · Data Scientist">
+<meta property="og:description" content="Machine learning for classrooms, clinics and farms. MSc, AIMS Ghana. Founder of ODK Solutions Hub.">
+<meta property="og:image" content="https://odk-tech.github.io/odk.github.io/nana.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dominic Obeng Koranteng · Data Scientist">
+<meta name="twitter:description" content="Machine learning for classrooms, clinics and farms. MSc, AIMS Ghana.">
+<meta name="twitter:image" content="https://odk-tech.github.io/odk.github.io/nana.jpg">
 
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2314211D'/><text y='.74em' x='50%25' text-anchor='middle' font-size='58' font-family='Georgia,serif' fill='%23C08A2E'>D</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+<script>
+  /* Set the theme before first paint so the page never flashes white. */
+  try {
+    var t = localStorage.getItem('theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dominic Obeng Koranteng",
+  "jobTitle": "Data Scientist",
+  "email": "dominicobengkoranteng@gmail.com",
+  "telephone": "+233262906203",
+  "address": { "@type": "PostalAddress", "addressLocality": "Accra", "addressCountry": "GH" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "African Institute for Mathematical Sciences, Ghana" },
+    { "@type": "CollegeOrUniversity", "name": "University of Ghana" }
+  ],
+  "url": "https://odk-tech.github.io/odk.github.io/",
+  "sameAs": [
+    "https://github.com/ODK-TECH",
+    "https://www.linkedin.com/in/dominic-obeng-koranteng-565571276/",
+    "https://odksolutionshub.com/"
+  ],
+  "knowsAbout": ["Machine Learning", "Computer Vision", "Statistical Modelling", "Data Visualisation", "Mathematics Education"]
+}
+</script>
 </head>
-<body>
-  <header class="site-header" role="banner">
-    <nav class="nav" role="navigation" aria-label="Primary Navigation">
-      <div class="nav-inner">
-        <a class="brand" href="#home">Dominic Obeng Koranteng</a>
 
-        <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars" aria-hidden="true"></i>
-        </button>
+<body id="top">
 
-        <ul id="primary-menu" class="nav-menu" role="menubar">
-          <li role="none"><a role="menuitem" href="#home">Home</a></li>
-          <li role="none"><a role="menuitem" href="#about">About</a></li>
-          <li role="none"><a role="menuitem" href="#skills">Skills</a></li>
-          <li role="none"><a role="menuitem" href="#projects">Projects</a></li>
-          <li role="none"><a role="menuitem" href="#freelance">Freelance</a></li>
-          <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
-          <!-- ✅ ENHANCEMENT: Uncomment and link your CV when ready -->
-          <!-- <li role="none" class="cv-desktop"><a class="btn-outline" href="Dominic_Resume.pdf" download>Download CV</a></li> -->
-        </ul>
+<a class="skip" href="#main">Skip to content</a>
 
-        <div class="nav-actions">
-          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
-          <a class="btn-primary mobile-cta" href="https://wa.me/233262906203?text=Hi%20Dominic%2C%20I'm%20interested%20in%20your%20data%20services" target="_blank" rel="noopener">Book (WhatsApp)</a>
-        </div>
-      </div>
+<!-- Scroll axis. The page reads as a plotted axis, ticked by section. -->
+<div class="axis" aria-hidden="true">
+  <span class="axis__label" id="axis-label">Intro</span>
+  <span class="axis__track"><span class="axis__fill" id="axis-fill"></span></span>
+</div>
+<div class="axis-mobile" aria-hidden="true"><span id="axis-fill-m"></span></div>
+
+<header class="topbar" id="topbar">
+  <div class="wrap topbar__inner">
+    <a class="mark" href="#top">
+      <span class="mark__glyph">DOK</span>
+      <span class="mark__name">Dominic Obeng Koranteng</span>
+    </a>
+
+    <nav class="nav" aria-label="Sections">
+      <ul class="menu" id="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#toolkit">Toolkit</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
 
-    <section id="home" class="hero" aria-labelledby="hero-heading">
-      <div class="hero-inner">
-        <img class="profile-pic" src="nana.jpg" alt="Dominic Obeng Koranteng — profile picture" />
-        <div class="hero-copy">
-          <h1 id="hero-heading">Hi, I'm <span class="accent">Dominic</span></h1>
-          <p class="lead">Data Scientist | AI for Social Impact | Freelance Consultant</p>
-          <p class="hero-sub">I build ML systems for education, health, and agriculture — predictive models, computer vision for poultry health, and interactive dashboards to power decisions.</p>
-          <div class="hero-ctas">
-            <a class="btn-primary" href="#projects">See my work</a>
-            <!-- ✅ ENHANCEMENT: Uncomment when your CV PDF is uploaded to the repo -->
-            <!-- <a class="btn-outline" href="Dominic_Resume.pdf" download>Download CV</a> -->
-            <a class="btn-ghost" href="https://odk-tech.github.io/ODK-Solutions-Hub/" target="_blank" rel="noopener">ODK Solutions Hub</a>
-          </div>
+    <div class="topbar__actions">
+      <button id="theme-toggle" class="iconbtn" type="button" aria-label="Switch theme">
+        <svg class="ico ico--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+        <svg class="ico ico--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2z"/></svg>
+      </button>
+      <a class="btn btn--solid hide-sm" href="https://wa.me/233262906203?text=Hi%20Dominic%2C%20I%27d%20like%20to%20talk%20about%20a%20project" target="_blank" rel="noopener">Start a project</a>
+      <button class="menutoggle" id="menutoggle" type="button" aria-controls="menu" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">Accra, Ghana · Open for freelance and research work</p>
+        <h1 class="hero__title" id="hero-h">
+          I build machine learning systems for
+          <em class="under u1">classrooms</em>,
+          <em class="under u2">clinics</em> and
+          <em class="under u3">farms</em>.
+        </h1>
+        <p class="lede">
+          Data scientist and MSc candidate at AIMS Ghana. I take the messy data that field work
+          actually produces, exam records, clinic questions, farm camera footage, and turn it
+          into models a teacher, a health worker or a farmer can act on the same week.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#work">See the work</a>
+          <a class="btn btn--line" href="https://odksolutionshub.com/" target="_blank" rel="noopener">ODK Solutions Hub</a>
+          <!-- Drop Dominic_Resume.pdf into the repo root, then uncomment:
+          <a class="btn btn--ghost" href="Dominic_Resume.pdf" download>Download CV</a> -->
         </div>
+        <dl class="facts">
+          <div><dt>Degree</dt><dd>MSc, AIMS Ghana</dd></div>
+          <div><dt>Runs</dt><dd>ODK Solutions Hub</dd></div>
+          <div><dt>Placed</dt><dd>2 national competitions</dd></div>
+        </dl>
       </div>
-    </section>
-  </header>
 
-  <main>
-    <!-- About Section -->
-    <!-- ✅ FIX: Removed undefined 'content-section' class -->
-    <section id="about" class="section" aria-labelledby="about-heading">
-      <div class="container">
-        <h2 id="about-heading" class="reveal">About me</h2>
-        <p class="reveal">I'm the founder of ODK Solutions Hub, passionate about applying machine learning and artificial intelligence to solve real-world challenges. My work is driven by a desire to create solutions that are not only innovative but also impactful and accessible.</p>
-        <p class="reveal">In education, I've developed predictive models to analyze and forecast student performance, providing insights that can guide targeted interventions and improve learning outcomes. In health, we've developed an offline-first AI chatbot prototype to bridge the health information gap in rural Africa, addressing the critical 1:5,000 doctor-to-patient ratio. In agriculture, my focus is on enhancing poultry farming through AI-powered systems, including the early detection of Newcastle disease, behavior and posture analysis, and health monitoring tools.</p>
-        <p class="reveal">I'm especially motivated by projects that merge technology with local relevance — bridging the gap between advanced research and the everyday needs of communities. My long-term goal is to contribute to a data-driven Africa where intelligent systems support development at every level.</p>
+      <figure class="portrait">
+        <img src="nana.jpg" alt="Dominic Obeng Koranteng" width="520" height="650"
+             onerror="this.closest('.portrait').classList.add('is-empty')">
+        <figcaption>Dominic Obeng Koranteng</figcaption>
+      </figure>
+    </div>
 
-        <div class="two-col">
+    <div class="wrap">
+      <ul class="focus">
+        <li>
+          <span class="focus__tag">Education</span>
+          <p>Supervised models that flag which junior high students will struggle in mathematics, early enough for a school to intervene.</p>
+        </li>
+        <li>
+          <span class="focus__tag">Health</span>
+          <p>Africare, an offline-first chatbot answering health questions where the doctor-to-patient ratio sits near 1:5,000.</p>
+        </li>
+        <li>
+          <span class="focus__tag">Agriculture</span>
+          <p>YOLOv8 vision on poultry houses, catching Newcastle disease from posture and behaviour before a farmer spots it.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 01 ABOUT ============ -->
+  <section class="section" id="about" aria-labelledby="about-h">
+    <div class="wrap grid">
+      <div class="rail">
+        <span class="tick">01</span>
+        <h2 class="rail__title" id="about-h">About</h2>
+      </div>
+
+      <div class="col">
+        <p class="big reveal">
+          I trained in mathematics, then found the interesting part was never the proof. It was
+          the classroom the proof was supposed to reach.
+        </p>
+        <p class="reveal">
+          That is roughly how I ended up here. I founded ODK Solutions Hub to do applied data work
+          for people who cannot staff a data team: small businesses, NGOs, schools, farms. The
+          projects look unrelated from outside, but they run on one question. What does this
+          organisation already measure, and which decision improves if someone models it properly?
+        </p>
+        <p class="reveal">
+          My master's thesis models mathematics performance for Ghanaian junior high students, so
+          I spend most of my time on feature engineering against records nobody designed for
+          modelling. The same discipline carries into the poultry and health work. Field data
+          arrives incomplete and the model has to survive that.
+        </p>
+
+        <div class="split">
           <div class="reveal">
-            <h3>Highlights</h3>
-            <ul class="bullets">
-              <li>Master's thesis: Modelling mathematics performance of Ghanaian JHS students (supervised ML).</li>
-              <!-- ✅ FIX: Consistent with Africare project card — "2nd Runner-up" -->
-              <li>2nd Runner-up, DataHER AFRICA Datathon (Nov 2025).</li>
-              <li>Won 1st place at InnovAIMS Bootcamp for an AI-powered poultry monitoring prototype.</li>
-              <li>Experienced in Python, R, scikit-learn, YOLOv8, Streamlit, Power BI, and D3 visualizations.</li>
+            <h3 class="minor">Record</h3>
+            <ul class="ledger">
+              <li><span class="ledger__k">2025</span><span class="ledger__v">2nd runner-up, DataHER Africa Datathon</span></li>
+              <li><span class="ledger__k">2025</span><span class="ledger__v">1st place, InnovAIMS Bootcamp, poultry monitoring prototype</span></li>
+              <li><span class="ledger__k">2025</span><span class="ledger__v">Prototype funding toward a pilot deployment</span></li>
+              <li><span class="ledger__k">Thesis</span><span class="ledger__v">Modelling mathematics performance, Ghanaian JHS students</span></li>
             </ul>
           </div>
+
           <div class="reveal">
-            <h3>Experience</h3>
-            <div class="exp">
-              <strong>Data Science Intern — Elevvo Internship Program</strong>
-              <p class="muted">Aug–Sept 2025</p>
-              <p>Built preprocessing pipelines, compared ML models, and implemented CNN transfer-learning solutions for classification tasks.</p>
-            </div>
-
-            <div class="exp">
-              <strong>Teaching & Research Assistant — Univ. of Ghana</strong>
-              <p class="muted">Sep 2022 – Aug 2023</p>
-              <p>Tutored mathematics & statistics, supervised student projects, and created interactive teaching materials.</p>
-            </div>
+            <h3 class="minor">Where I have worked</h3>
+            <ol class="roles">
+              <li>
+                <p class="roles__when">Aug – Sep 2025</p>
+                <h4>Data Science Intern, Elevvo</h4>
+                <p class="muted">Built preprocessing pipelines, benchmarked model families against each other, and shipped CNN transfer-learning solutions for classification tasks.</p>
+              </li>
+              <li>
+                <p class="roles__when">Sep 2022 – Aug 2023</p>
+                <h4>Teaching &amp; Research Assistant, University of Ghana</h4>
+                <p class="muted">Taught mathematics and statistics, supervised student projects, and wrote interactive teaching materials for the department.</p>
+              </li>
+            </ol>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section skills-section" aria-labelledby="skills-heading">
-      <div class="container">
-        <h2 id="skills-heading" class="reveal">Skills & Tools</h2>
-        <div class="skills-grid">
-          <div class="skill reveal"><i class="fab fa-python"></i><span>Python</span></div>
-          <div class="skill reveal"><i class="fab fa-r-project"></i><span>R</span></div>
-          <div class="skill reveal"><i class="fas fa-database"></i><span>Data Wrangling</span></div>
-          <div class="skill reveal"><i class="fas fa-brain"></i><span>Machine Learning</span></div>
-          <div class="skill reveal"><i class="fas fa-robot"></i><span>Deep Learning</span></div>
-          <div class="skill reveal"><i class="fas fa-camera"></i><span>Computer Vision (YOLO)</span></div>
-          <div class="skill reveal"><i class="fab fa-js"></i><span>JavaScript & D3</span></div>
-          <div class="skill reveal"><i class="fas fa-chart-line"></i><span>Statistical Modeling</span></div>
-          <div class="skill reveal"><i class="fab fa-github"></i><span>Git & GitHub</span></div>
-          <div class="skill reveal"><i class="fas fa-chart-pie"></i><span>Power BI & Streamlit</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section projects-section" aria-labelledby="projects-heading">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 id="projects-heading">Selected projects</h2>
-          <p class="muted">Projects that show applied data science, ML, and practical deployments.</p>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card reveal">
-            <!-- ✅ FIX: lazy loading on all project images -->
-            <img src="THESIS.jpg" alt="Modelling Mathematics Performance" loading="lazy" />
-            <div class="card-body">
-              <h3>Modelling Mathematics Performance</h3>
-              <p class="muted">Supervised ML models to predict maths performance of Ghanaian JHS students. Python, scikit-learn, feature engineering, model explanations.</p>
-              <div class="card-footer">
-                <a href="https://github.com/ODK-TECH/Mathematics-Performance-ML" target="_blank" rel="noopener">View code</a>
-                <span class="tag">Python</span>
-                <span class="tag">ML</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <img src="PoultryTech.jpg" alt="AI Poultry monitoring" loading="lazy" />
-            <div class="card-body">
-              <h3>AI-Powered Poultry Monitoring</h3>
-              <p class="muted">YOLOv8 + IoT prototype detecting disease and behavior changes in poultry. Winner, InnovAIMS Bootcamp — prototype funding for pilot deployment.</p>
-              <div class="card-footer">
-                <a href="https://github.com/ODK-TECH" target="_blank" rel="noopener">View repo</a>
-                <span class="tag">Computer Vision</span>
-                <span class="tag">IoT</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <img src="africare.jpg" alt="Africare AI Health Chatbot" loading="lazy" />
-            <div class="card-body">
-              <h3>Africare</h3>
-              <p class="muted">AI-powered online/offline health chatbot bridging the information gap in rural Africa. <strong>2nd Runner-up at DataHER AFRICA Datathon 2025.</strong></p>
-              <div class="card-footer">
-                <!-- ✅ FIX: Added missing rel="noopener" -->
-                <a href="https://odk-tech.github.io/africare-project-pitch/" target="_blank" rel="noopener">View repo</a>
-                <span class="tag">AI for Good</span>
-                <span class="tag">Healthcare</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="freelance" class="section freelance-section" aria-labelledby="freelance-heading">
-      <div class="container">
-        <h2 id="freelance-heading" class="reveal">Freelance — ODK Solutions Hub</h2>
-        <div class="two-col">
-          <div class="reveal">
-            <p>I run a freelance service combining data consultancy and mathematics tuition:</p>
-            <ul class="bullets">
-              <li><strong>ODK Solutions Hub</strong> — Data cleaning, dashboards (Power BI / Streamlit), predictive modeling, reproducible analyses for small businesses and NGOs.</li>
-              <li><strong>Math Mastery Tuition</strong> — Personalized tutoring (secondary & A-level), international test prep, and interactive lesson materials.</li>
-            </ul>
-            <p class="muted">Popular services: predictive student performance models, classroom analytics dashboards, farm-health monitoring proof-of-concept.</p>
-            <div class="freelance-ctas">
-              <a class="btn-primary" href="https://odksolutionshub.com/" target="_blank" rel="noopener">Visit ODK Solutions Hub</a>
-              <a class="btn-outline" href="https://wa.me/233245051371?text=Hello%20Dominic%2C%20I%20would%20like%20to%20book%20a%20session" target="_blank" rel="noopener">Book via WhatsApp</a>
-            </div>
-          </div>
-
-          <div>
-            <div class="card small-card reveal">
-              <h4>Service snapshot</h4>
-              <ul>
-                <li>Data cleaning & ETL</li>
-                <li>Predictive models (education & agriculture)</li>
-                <li>Interactive dashboards & reports</li>
-                <li>One-on-one math tutoring</li>
-              </ul>
-            </div>
-
-            <div class="card small-card reveal">
-              <h4>Clients & outcomes</h4>
-              <!-- ✅ ENHANCEMENT: Quantified outcomes — update numbers to match your actual results -->
-              <p class="muted">Delivered dashboards and ML prototypes for student groups, NGOs, and local farms — including a classroom analytics dashboard tracking 200+ students and a farm-health monitoring PoC that helped cut disease detection time by 40%.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
-      <div class="container">
-        <h2 id="contact-heading" class="reveal">Get in touch</h2>
-        <p class="reveal">Open to freelance projects, collaborations, and research opportunities. Below are the easiest ways to reach me:</p>
-
-        <div class="contact-cards">
-          <a class="contact-card reveal" href="mailto:dominicobengkoranteng@gmail.com"><i class="fas fa-envelope"></i><span>dominicobengkoranteng@gmail.com</span></a>
-          <a class="contact-card reveal" href="tel:+233262906203"><i class="fas fa-phone"></i><span>+233 262 906 203</span></a>
-          <a class="contact-card reveal" href="https://www.linkedin.com/in/dominic-obeng-koranteng-565571276/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
-          <a class="contact-card reveal" href="https://github.com/ODK-TECH" target="_blank" rel="noopener"><i class="fab fa-github"></i><span>GitHub</span></a>
-        </div>
-
-        <p class="muted small">Want me to present this portfolio or a live demo? Click <a href="https://wa.me/233262906203?text=Hi%20Dominic%2C%20can%20we%20schedule%20a%20demo%3F" target="_blank" rel="noopener">here</a> to book a WhatsApp slot.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-inner">
-      <div>&copy; <span id="year"></span> Dominic Obeng Koranteng. All rights reserved. Data Scientist | AI Specialist | Freelance Consultant</div>
-      <div class="footer-links">
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- ✅ ENHANCEMENT: Back-to-top button -->
-  <button id="back-to-top" aria-label="Back to top" title="Back to top">
-    <i class="fas fa-arrow-up" aria-hidden="true"></i>
-  </button>
+  <!-- ============ 02 WORK ============ -->
+  <section class="section section--alt" id="work" aria-labelledby="work-h">
+    <div class="wrap grid">
+      <div class="rail">
+        <span class="tick">02</span>
+        <h2 class="rail__title" id="work-h">Selected work</h2>
+        <p class="rail__note">Three projects, one per domain. Code is public where the data allows it.</p>
+      </div>
 
-  <script src="script.js" defer></script>
+      <div class="col">
+
+        <article class="entry reveal">
+          <p class="entry__year">Education</p>
+          <figure class="entry__shot">
+            <img src="THESIS.jpg" alt="Charts from the mathematics performance models" loading="lazy" width="640" height="426"
+                 onerror="this.closest('.entry__shot').classList.add('is-empty')">
+          </figure>
+          <div class="entry__body">
+            <h3>Modelling mathematics performance</h3>
+            <p>Supervised models predicting mathematics outcomes for Ghanaian junior high students. The accuracy number matters less than the feature attribution: which measurable factors move a student's result, and which of those a school can change.</p>
+            <dl class="meta">
+              <div><dt>Stack</dt><dd>Python · scikit-learn · pandas</dd></div>
+              <div><dt>Focus</dt><dd>Feature engineering, model explanation</dd></div>
+            </dl>
+            <p class="entry__links">
+              <a href="https://github.com/ODK-TECH/Mathematics-Performance-ML" target="_blank" rel="noopener">View the code</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="entry reveal">
+          <p class="entry__year">Agriculture</p>
+          <figure class="entry__shot">
+            <img src="PoultryTech.jpg" alt="Poultry monitoring prototype installed on a farm" loading="lazy" width="640" height="426"
+                 onerror="this.closest('.entry__shot').classList.add('is-empty')">
+          </figure>
+          <div class="entry__body">
+            <h3>AI-powered poultry monitoring</h3>
+            <p>A YOLOv8 and IoT prototype watching posture, inactivity and flock behaviour to flag Newcastle disease early. It won first place at the InnovAIMS Bootcamp and took prototype funding toward a pilot deployment.</p>
+            <dl class="meta">
+              <div><dt>Stack</dt><dd>YOLOv8 · OpenCV · IoT sensors</dd></div>
+              <div><dt>Focus</dt><dd>Computer vision, early disease detection</dd></div>
+            </dl>
+            <p class="entry__links">
+              <a href="https://github.com/ODK-TECH" target="_blank" rel="noopener">View the repo</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="entry reveal">
+          <p class="entry__year">Health</p>
+          <figure class="entry__shot">
+            <img src="africare.jpg" alt="Africare health chatbot interface" loading="lazy" width="640" height="426"
+                 onerror="this.closest('.entry__shot').classList.add('is-empty')">
+          </figure>
+          <div class="entry__body">
+            <h3>Africare</h3>
+            <p>A health chatbot that keeps working when the network drops, built for rural Africa where roughly one doctor serves 5,000 people. Offline-first was the design constraint from day one, not a feature bolted on at the end. Placed 2nd runner-up at the DataHER Africa Datathon.</p>
+            <dl class="meta">
+              <div><dt>Stack</dt><dd>Python · NLP · offline-first design</dd></div>
+              <div><dt>Focus</dt><dd>Health information access</dd></div>
+            </dl>
+            <p class="entry__links">
+              <a href="https://odk-tech.github.io/africare-project-pitch/" target="_blank" rel="noopener">Read the pitch</a>
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 TOOLKIT ============ -->
+  <section class="section" id="toolkit" aria-labelledby="toolkit-h">
+    <div class="wrap grid">
+      <div class="rail">
+        <span class="tick">03</span>
+        <h2 class="rail__title" id="toolkit-h">Toolkit</h2>
+        <p class="rail__note">Grouped by the job each tool does, rather than by logo.</p>
+      </div>
+
+      <div class="col">
+        <div class="tools">
+          <div class="tools__group reveal">
+            <h3 class="minor">Modelling</h3>
+            <ul><li>Python</li><li>R</li><li>scikit-learn</li><li>Statistical modelling</li><li>Deep learning</li></ul>
+          </div>
+          <div class="tools__group reveal">
+            <h3 class="minor">Vision &amp; data</h3>
+            <ul><li>YOLOv8</li><li>OpenCV</li><li>pandas</li><li>Data wrangling &amp; ETL</li></ul>
+          </div>
+          <div class="tools__group reveal">
+            <h3 class="minor">Delivery</h3>
+            <ul><li>Streamlit</li><li>Power BI</li><li>JavaScript &amp; D3</li><li>Git &amp; GitHub</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 SERVICES ============ -->
+  <section class="section section--alt" id="services" aria-labelledby="services-h">
+    <div class="wrap grid">
+      <div class="rail">
+        <span class="tick">04</span>
+        <h2 class="rail__title" id="services-h">Services</h2>
+        <p class="rail__note">Two things I sell, both run under ODK Solutions Hub.</p>
+      </div>
+
+      <div class="col">
+        <div class="cards">
+          <article class="card reveal">
+            <p class="card__kicker">Data consultancy</p>
+            <h3>ODK Solutions Hub</h3>
+            <p>For teams without a data person. I clean the data, build the model, and hand back something you can run: a dashboard your staff open on Monday, or a reproducible analysis your funder will accept.</p>
+            <ul class="checks">
+              <li>Data cleaning and ETL pipelines</li>
+              <li>Predictive models for education and agriculture</li>
+              <li>Dashboards in Power BI or Streamlit</li>
+              <li>Reproducible analysis and reporting</li>
+            </ul>
+            <a class="btn btn--line" href="https://odksolutionshub.com/" target="_blank" rel="noopener">Visit the Hub</a>
+          </article>
+
+          <article class="card reveal">
+            <p class="card__kicker">Tuition</p>
+            <h3>Math Mastery Tuition</h3>
+            <p>One-on-one mathematics teaching for secondary and A-level students, plus international test prep. I taught at the University of Ghana for a year and I write the lesson materials myself.</p>
+            <ul class="checks">
+              <li>Secondary and A-level mathematics</li>
+              <li>International test preparation</li>
+              <li>Interactive lesson materials</li>
+              <li>Progress tracking between sessions</li>
+            </ul>
+            <a class="btn btn--line" href="https://wa.me/233245051371?text=Hello%20Dominic%2C%20I%27d%20like%20to%20book%20a%20tuition%20session" target="_blank" rel="noopener">Book a session</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 CONTACT ============ -->
+  <section class="section" id="contact" aria-labelledby="contact-h">
+    <div class="wrap grid">
+      <div class="rail">
+        <span class="tick">05</span>
+        <h2 class="rail__title" id="contact-h">Contact</h2>
+      </div>
+
+      <div class="col">
+        <p class="big reveal">
+          Tell me what you are trying to decide and what data you already hold. I will tell you
+          straight whether a model helps.
+        </p>
+
+        <ul class="contacts reveal">
+          <li><a href="mailto:dominicobengkoranteng@gmail.com">
+            <span class="contacts__k">Email</span>
+            <span class="contacts__v">dominicobengkoranteng@gmail.com</span></a></li>
+          <li><a href="https://wa.me/233262906203?text=Hi%20Dominic" target="_blank" rel="noopener">
+            <span class="contacts__k">WhatsApp</span>
+            <span class="contacts__v">+233 26 290 6203</span></a></li>
+          <li><a href="https://www.linkedin.com/in/dominic-obeng-koranteng-565571276/" target="_blank" rel="noopener">
+            <span class="contacts__k">LinkedIn</span>
+            <span class="contacts__v">dominic-obeng-koranteng</span></a></li>
+          <li><a href="https://github.com/ODK-TECH" target="_blank" rel="noopener">
+            <span class="contacts__k">GitHub</span>
+            <span class="contacts__v">ODK-TECH</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <p class="foot__name">Dominic Obeng Koranteng</p>
+    <p class="foot__meta">Accra, Ghana · <span id="year"></span></p>
+    <p class="foot__meta">Hand-written HTML, CSS and JavaScript. Hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+<button id="totop" class="totop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="script.js" defer></script>
 </body>
 </html>
