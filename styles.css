@@ -107,7 +107,7 @@ p:last-child { margin-bottom: 0; }
 
 /* ---------- Mono label convention ---------- */
 .eyebrow, .tick, .focus__tag, .entry__year, .card__kicker,
-.meta dt, .facts dt, .ledger__k, .roles__when, .contacts__k,
+.meta dt, .facts dt, .ledger__k, .roles__when, .contacts__k, .sup__who,
 .menu a, .mark__glyph, .foot__meta, .axis__label {
   font-family: var(--f-mono);
   font-size: 11.5px;
@@ -463,7 +463,7 @@ p:last-child { margin-bottom: 0; }
   text-wrap: pretty;
 }
 
-.col p:not(.big):not(.muted):not(.roles__when):not(.entry__links) {
+.col p:not(.big):not(.muted):not(.roles__when):not(.entry__links):not(.sup__who) {
   max-width: 68ch;
   color: var(--muted);
 }
@@ -558,7 +558,7 @@ p:last-child { margin-bottom: 0; }
 .meta dt { color: var(--faint); margin-bottom: 4px; }
 .meta dd { margin: 0; font-size: 14.5px; color: var(--ink); }
 
-.entry__links { margin: 0; }
+.entry__links { margin: 0; display: flex; flex-wrap: wrap; gap: 10px 26px; }
 .entry__links a {
   font: 500 13.5px/1 var(--f-mono);
   letter-spacing: .04em;
@@ -620,6 +620,16 @@ p:last-child { margin-bottom: 0; }
   background: var(--bronze);
 }
 .card .btn { align-self: flex-start; margin-top: auto; }
+
+/* Supervised student work */
+.supervised { margin-top: clamp(40px, 6vw, 64px); }
+.sup { list-style: none; margin: 0; padding: 0; }
+.sup li { padding-top: 20px; border-top: 1px solid var(--rule); }
+.sup li:first-child { border-top: none; padding-top: 0; }
+.sup li + li { margin-top: 26px; }
+.sup__who { color: var(--faint); margin-bottom: 8px; }
+.sup h4 { font-size: 1.16rem; margin-bottom: 10px; }
+.sup .muted { font-size: 15px; max-width: 68ch; margin-bottom: 14px; }
 
 /* =========================================================
    Contact
