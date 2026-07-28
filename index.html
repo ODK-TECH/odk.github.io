@@ -74,8 +74,8 @@
 <header class="topbar" id="topbar">
   <div class="wrap topbar__inner">
     <a class="mark" href="#top">
-      <span class="mark__glyph">DOK</span>
-      <span class="mark__name">Dominic Obeng Koranteng</span>
+      <span class="mark__glyph">ODK</span>
+      <span class="mark__name">Obeng Dominic  Koranteng</span>
     </a>
 
     <nav class="nav" aria-label="Sections">
@@ -190,7 +190,8 @@
               <li><span class="ledger__k">2025</span><span class="ledger__v">2nd runner-up, DataHER Africa Datathon</span></li>
               <li><span class="ledger__k">2025</span><span class="ledger__v">1st place, InnovAIMS Bootcamp, poultry monitoring prototype</span></li>
               <li><span class="ledger__k">2025</span><span class="ledger__v">Prototype funding toward a pilot deployment</span></li>
-              <li><span class="ledger__k">Thesis</span><span class="ledger__v">Modelling mathematics performance, Ghanaian JHS students</span></li>
+              <li><span class="ledger__k">MSc</span><span class="ledger__v">Modelling mathematics performance, Ghanaian JHS students</span></li>
+              <li><span class="ledger__k">BSc</span><span class="ledger__v">Statistical analysis of premix fuel pricing, University of Ghana</span></li>
             </ul>
           </div>
 
@@ -220,7 +221,7 @@
       <div class="rail">
         <span class="tick">02</span>
         <h2 class="rail__title" id="work-h">Selected work</h2>
-        <p class="rail__note">Three projects, one per domain. Code is public where the data allows it.</p>
+        <p class="rail__note">One project per domain, plus the dissertation that started the applied work. Code is public where the data allows it.</p>
       </div>
 
       <div class="col">
@@ -282,6 +283,46 @@
           </div>
         </article>
 
+        <article class="entry reveal">
+          <p class="entry__year">Energy</p>
+          <figure class="entry__shot">
+            <img src="premix.jpg" alt="Forecast plot of premix fuel pump prices to 2026" loading="lazy" width="640" height="426"
+                 onerror="this.closest('.entry__shot').classList.add('is-empty')">
+          </figure>
+          <div class="entry__body">
+            <h3>Pricing premix fuel at the pumps</h3>
+            <p>Twelve years of monthly pump prices for the subsidised fuel Ghana's canoe fishers run on, modelled with ARIMA and a logistic regression on the months where the price moved. The forecast held exactly for five months into 2022, then missed June by 72 pesewas when the cedi slid. That miss is the most instructive part: an administered price carries no signal about the shock that ends it. Undergraduate dissertation, University of Ghana.</p>
+            <dl class="meta">
+              <div><dt>Stack</dt><dd>R · ARIMA · logistic regression</dd></div>
+              <div><dt>Focus</dt><dd>Forecasting, administered pricing</dd></div>
+            </dl>
+            <p class="entry__links">
+              <a href="https://github.com/ODK-TECH/Premix-Fuel-Price-Analysis" target="_blank" rel="noopener">View the repo</a>
+              <a href="https://github.com/ODK-TECH/Premix-Fuel-Price-Analysis/blob/main/thesis/STATISTICAL_ANALYSIS_OF_PRICES_OF_PREMIX_FUEL_AT_THE_PUMPS_IN_GHANA.pdf" target="_blank" rel="noopener">Read the dissertation</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="entry reveal">
+          <p class="entry__year">Deployment</p>
+          <figure class="entry__shot">
+            <img src="mlworkflow.jpg" alt="Streamlit prediction interface for the breast cancer classifier" loading="lazy" width="640" height="426"
+                 onerror="this.closest('.entry__shot').classList.add('is-empty')">
+          </figure>
+          <div class="entry__body">
+            <h3>Breast cancer classifier, served as an API</h3>
+            <p>A logistic regression on the Wisconsin diagnostic set, split into a FastAPI service that holds the model and a Streamlit client that calls it over HTTP. Model and scaler are serialised together, so inference applies the exact transform training used. The dataset is a benchmark and the model is deliberately plain. What the project is actually about is the seam between training and serving, and keeping preprocessing identical on both sides of it.</p>
+            <dl class="meta">
+              <div><dt>Stack</dt><dd>FastAPI · Streamlit · scikit-learn · joblib</dd></div>
+              <div><dt>Focus</dt><dd>Model serving, train and inference parity</dd></div>
+            </dl>
+            <p class="entry__links">
+              <a href="https://github.com/ODK-TECH/ML-Workflow" target="_blank" rel="noopener">View the repo</a>
+              <a href="https://ml-workflow-d5wyvzphechtsczcfzg46t.streamlit.app/" target="_blank" rel="noopener">Try the live app</a>
+            </p>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -320,7 +361,7 @@
       <div class="rail">
         <span class="tick">04</span>
         <h2 class="rail__title" id="services-h">Services</h2>
-        <p class="rail__note">Two things I sell, both run under ODK Solutions Hub.</p>
+        <p class="rail__note">Two things I sell, both run under ODK Solutions Hub, plus the students I train there.</p>
       </div>
 
       <div class="col">
@@ -350,6 +391,20 @@
             </ul>
             <a class="btn btn--line" href="https://wa.me/233245051371?text=Hello%20Dominic%2C%20I%27d%20like%20to%20book%20a%20tuition%20session" target="_blank" rel="noopener">Book a session</a>
           </article>
+        </div>
+
+        <div class="supervised">
+          <h3 class="minor reveal">Work I supervised</h3>
+          <ul class="sup">
+            <li class="reveal">
+              <p class="sup__who">Augustina Agyapomaa Agyeman · ODK Solutions Hub training programme</p>
+              <h4>Student grade predictor</h4>
+              <p class="muted">Sorts students into three GPA bands from demographic, family and academic features. Logistic regression and random forest compared under stratified 5-fold cross-validation, with the scaler wrapped in a pipeline so it never sees the test split. I designed the curriculum and reviewed the methodology; the work and the code are hers.</p>
+              <p class="entry__links">
+                <a href="https://github.com/ODK-TECH/ML_Project1_Supervised" target="_blank" rel="noopener">View the repo</a>
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
