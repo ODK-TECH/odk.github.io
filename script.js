@@ -1,158 +1,145 @@
-// ============================================================
-//  PORTFOLIO SCRIPT — script.js (defer loaded)
-// ============================================================
+/* =========================================================
+   Dominic Obeng Koranteng — portfolio
+   No dependencies. Everything degrades if JavaScript fails.
+   ========================================================= */
+(function () {
+  'use strict';
 
-// DOM helpers
-const $ = (sel) => document.querySelector(sel);
-const $$ = (sel) => document.querySelectorAll(sel);
+  var $  = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ============================================================
-//  NAV TOGGLE (mobile)
-// ============================================================
-const navToggle = $('.nav-toggle');
-const navMenu   = $('#primary-menu');
+  /* ---------- Theme ---------- */
+  var root   = document.documentElement;
+  var toggle = $('#theme-toggle');
 
-navToggle && navToggle.addEventListener('click', () => {
-  const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-  navToggle.setAttribute('aria-expanded', String(!expanded));
-  navMenu.classList.toggle('show');
-});
-
-// ============================================================
-//  SMOOTH SCROLL for in-page anchors
-// ============================================================
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (!href || href === '#') return;
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // hide mobile nav after click
-      if (navMenu.classList.contains('show')) {
-        navMenu.classList.remove('show');
-        navToggle.setAttribute('aria-expanded', 'false');
-      }
-    }
-  });
-});
-
-// ============================================================
-//  THEME TOGGLE (persist across sessions)
-// ============================================================
-const themeToggle = $('#theme-toggle');
-const root        = document.documentElement;
-
-// Apply stored or system preference on load
-const stored = localStorage.getItem('theme');
-if (stored) {
-  root.setAttribute('data-theme', stored);
-} else {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-}
-
-const updateThemeIcon = () => {
-  const icon  = themeToggle.querySelector('i');
-  const theme = root.getAttribute('data-theme');
-  icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-};
-
-updateThemeIcon();
-
-// ✅ FIX: Simplified toggle — removed redundant ternary
-themeToggle && themeToggle.addEventListener('click', () => {
-  const current = root.getAttribute('data-theme') || 'light';
-  const next    = current === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-  updateThemeIcon();
-});
-
-// ============================================================
-//  FOOTER YEAR
-// ============================================================
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-// ============================================================
-//  ACCESSIBILITY — close nav on ESC
-// ============================================================
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && navMenu.classList.contains('show')) {
-    navMenu.classList.remove('show');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.focus();
+  function label() {
+    if (!toggle) return;
+    var dark = root.getAttribute('data-theme') === 'dark';
+    toggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
   }
-});
+  label();
 
-// ============================================================
-//  SCROLL-TRIGGERED REVEAL ANIMATION
-// ✅ ENHANCEMENT: Elements with class="reveal" fade in on scroll
-// ============================================================
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      // Unobserve after reveal so it only plays once
-      revealObserver.unobserve(entry.target);
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      label();
+    });
+  }
+
+  /* ---------- Mobile menu ---------- */
+  var menu   = $('#menu');
+  var burger = $('#menutoggle');
+
+  function closeMenu() {
+    if (!menu || !burger) return;
+    menu.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open menu');
+  }
+
+  if (burger && menu) {
+    burger.addEventListener('click', function () {
+      var open = menu.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    $$('a', menu).forEach(function (a) { a.addEventListener('click', closeMenu); });
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu && menu.classList.contains('is-open')) {
+      closeMenu();
+      burger.focus();
     }
   });
-}, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(el => {
-  revealObserver.observe(el);
-});
+  document.addEventListener('click', function (e) {
+    if (!menu || !menu.classList.contains('is-open')) return;
+    if (!menu.contains(e.target) && !burger.contains(e.target)) closeMenu();
+  });
 
-// ============================================================
-//  ACTIVE NAV LINK ON SCROLL
-// ✅ ENHANCEMENT: Highlights the current section in the nav
-// ============================================================
-const sections    = document.querySelectorAll('section[id]');
-const navLinks    = document.querySelectorAll('.nav-menu a[href^="#"]');
+  /* ---------- Reveal on scroll ---------- */
+  var revealables = $$('.reveal');
 
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.getAttribute('id');
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealables.forEach(function (el) { el.classList.add('is-in'); });
+  } else {
+    var revealer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        revealer.unobserve(entry.target);
       });
-    }
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    revealables.forEach(function (el) { revealer.observe(el); });
+  }
+
+  /* ---------- Active section + axis label ---------- */
+  var sections = $$('main section[id]');
+  var links    = $$('.menu a[href^="#"]');
+  var axisLbl  = $('#axis-label');
+
+  var titles = {};
+  sections.forEach(function (s) {
+    var h = $('.rail__title', s) || $('h1', s);
+    titles[s.id] = h ? h.textContent.trim() : 'Intro';
   });
-}, {
-  // Trigger when section is ~30% into the viewport
-  rootMargin: '-30% 0px -60% 0px',
-  threshold: 0
-});
 
-sections.forEach(section => sectionObserver.observe(section));
+  if ('IntersectionObserver' in window && sections.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = entry.target.id;
+        links.forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+        });
+        if (axisLbl) axisLbl.textContent = titles[id] || 'Intro';
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
 
-// ============================================================
-//  BACK-TO-TOP BUTTON
-// ✅ ENHANCEMENT: Show after scrolling 400px, scroll to top on click
-// ============================================================
-const backToTop = $('#back-to-top');
+    sections.forEach(function (s) { spy.observe(s); });
+  }
 
-if (backToTop) {
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
+  /* ---------- Scroll position: axis fill, sticky bar, back to top ---------- */
+  var fill   = $('#axis-fill');
+  var fillM  = $('#axis-fill-m');
+  var topbar = $('#topbar');
+  var totop  = $('#totop');
+  var ticking = false;
+
+  function onScroll() {
+    var y   = window.scrollY || document.documentElement.scrollTop;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = max > 0 ? Math.min(100, (y / max) * 100) : 0;
+
+    if (fill)  fill.style.height = pct + '%';
+    if (fillM) fillM.style.width = pct + '%';
+    if (topbar) topbar.classList.toggle('is-stuck', y > 8);
+    if (totop)  totop.classList.toggle('is-on', y > 600);
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(onScroll);
   }, { passive: true });
 
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
 
-// ============================================================
-//  NAV SHADOW ON SCROLL
-// ✅ ENHANCEMENT: Adds subtle shadow to nav once user starts scrolling
-// ============================================================
-const nav = $('.nav');
+  if (totop) {
+    totop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+  }
 
-if (nav) {
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 10);
-  }, { passive: true });
-}
+  /* ---------- Footer year ---------- */
+  var year = $('#year');
+  if (year) year.textContent = new Date().getFullYear();
+})();
