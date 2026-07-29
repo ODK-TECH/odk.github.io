@@ -106,7 +106,7 @@ p:last-child { margin-bottom: 0; }
 .muted { color: var(--muted); }
 
 /* ---------- Mono label convention ---------- */
-.eyebrow, .tick, .focus__tag, .entry__year, .card__kicker,
+.eyebrow, .tick, .focus__tag, .card__kicker,
 .meta dt, .facts dt, .ledger__k, .roles__when, .contacts__k, .sup__who,
 .menu a, .mark__glyph, .foot__meta, .axis__label {
   font-family: var(--f-mono);
@@ -367,8 +367,9 @@ p:last-child { margin-bottom: 0; }
 .portrait { margin: 0; position: relative; }
 .portrait img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center 30%;
   border-radius: 2px;
   filter: saturate(.92) contrast(1.03);
   box-shadow: var(--shadow);
@@ -395,7 +396,7 @@ p:last-child { margin-bottom: 0; }
   content: "Portrait";
   display: grid;
   place-items: center;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   background: linear-gradient(150deg, var(--alt), var(--surface));
   border: 1px solid var(--rule);
   color: var(--faint);
@@ -504,63 +505,96 @@ p:last-child { margin-bottom: 0; }
 .roles .muted { font-size: 15px; }
 
 /* =========================================================
-   Work entries
+   Work cards — uniform image banners at every breakpoint
    ========================================================= */
-.entry {
+.work-grid {
   display: grid;
-  gap: 22px 32px;
-  padding-top: 26px;
-  border-top: 1px solid var(--rule);
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 760px) { .work-grid { grid-template-columns: 1fr 1fr; } }
+
+.entry {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform .3s var(--ease), border-color .3s var(--ease),
+              box-shadow .3s var(--ease);
+}
+.entry:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--bronze) 55%, var(--rule));
+  box-shadow: var(--shadow);
+}
+
+/* The image box owns its ratio, so every card matches whatever the
+   source file happens to be. Supply 3:2 and nothing is ever cropped. */
+.entry__shot {
   position: relative;
-}
-.entry + .entry { margin-top: clamp(44px, 6vw, 72px); }
-.entry::before {
-  content: "";
-  position: absolute;
-  top: -1px; left: 0;
-  width: 0; height: 2px;
-  background: var(--bronze);
-  transition: width .55s var(--ease);
-}
-.entry:hover::before { width: 100%; }
-
-@media (min-width: 760px) {
-  .entry { grid-template-columns: 92px minmax(0, 300px) minmax(0, 1fr); align-items: start; }
-}
-
-.entry__year { color: var(--sage); margin: 3px 0 0; }
-
-.entry__shot { margin: 0; overflow: hidden; border-radius: 2px; background: var(--alt); }
-.entry__shot img {
+  margin: 0;
   width: 100%;
   aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: linear-gradient(150deg, var(--alt), var(--surface));
+  border-bottom: 1px solid var(--rule);
+}
+.entry__shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform .6s var(--ease);
 }
-.entry:hover .entry__shot img { transform: scale(1.04); }
-.entry__shot.is-empty {
-  aspect-ratio: 3 / 2;
+.entry:hover .entry__shot img { transform: scale(1.05); }
+.entry__shot.is-empty img { display: none; }
+
+.entry__tag {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 2;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--rule);
-  background: linear-gradient(150deg, var(--alt), var(--surface));
+  box-shadow: 0 1px 3px rgba(20, 33, 29, .10);
+  color: var(--bronze-t);
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
-.entry__body h3 { font-size: clamp(1.32rem, 2.4vw, 1.7rem); margin-bottom: 12px; }
-.entry__body > p { font-size: 15.5px; }
+.entry__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(18px, 2.4vw, 26px);
+}
+.entry__body h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); margin-bottom: 12px; }
+.entry__body > p { font-size: 15px; }
 
 .meta {
   display: grid;
-  gap: 10px 30px;
-  margin: 20px 0 18px;
-  padding-top: 16px;
+  gap: 10px 24px;
+  grid-template-columns: 1fr;
+  margin: 18px 0 16px;
+  padding-top: 14px;
   border-top: 1px solid var(--rule);
 }
-@media (min-width: 560px) { .meta { grid-template-columns: 1fr 1fr; } }
-.meta dt { color: var(--faint); margin-bottom: 4px; }
+.meta dt { color: var(--faint); margin-bottom: 3px; }
 .meta dd { margin: 0; font-size: 14.5px; color: var(--ink); }
 
-.entry__links { margin: 0; display: flex; flex-wrap: wrap; gap: 10px 26px; }
+.entry__links { margin: auto 0 0; display: flex; flex-wrap: wrap; gap: 10px 24px; }
 .entry__links a {
-  font: 500 13.5px/1 var(--f-mono);
+  font: 500 13px/1 var(--f-mono);
   letter-spacing: .04em;
   color: var(--bronze-t);
   text-decoration: none;
