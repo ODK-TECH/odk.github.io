@@ -363,50 +363,54 @@ p:last-child { margin-bottom: 0; }
 .facts dt { color: var(--faint); margin-bottom: 5px; }
 .facts dd { margin: 0; font-size: 15px; font-weight: 500; }
 
-/* Portrait */
-.portrait { margin: 0; position: relative; }
+/* Portrait — circular avatar, 280px desktop / 220px mobile */
+.portrait {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
 .portrait img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: center 30%;
-  border-radius: 2px;
-  filter: saturate(.92) contrast(1.03);
-  box-shadow: var(--shadow);
-  position: relative;
-  z-index: 1;
+  object-position: center;
+  border: 6px solid var(--surface);
+  box-shadow: 0 18px 44px -14px rgba(20, 33, 29, .30);
+  filter: saturate(.96);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
-.portrait::before {
-  content: "";
-  position: absolute;
-  inset: 14px -14px -14px 14px;
-  border: 1px solid var(--bronze);
-  border-radius: 2px;
-  z-index: 0;
+.portrait img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 25px 60px rgba(192, 138, 46, .34);
 }
-.portrait figcaption {
-  margin-top: 14px;
-  font: 400 11.5px/1.4 var(--f-mono);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--faint);
+[data-theme="dark"] .portrait img {
+  box-shadow: 0 18px 44px -14px rgba(0, 0, 0, .70);
 }
+[data-theme="dark"] .portrait img:hover {
+  box-shadow: 0 25px 60px rgba(227, 180, 99, .30);
+}
+
 .portrait.is-empty img { display: none; }
 .portrait.is-empty::after {
   content: "Portrait";
   display: grid;
   place-items: center;
-  aspect-ratio: 1 / 1;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
   background: linear-gradient(150deg, var(--alt), var(--surface));
-  border: 1px solid var(--rule);
+  border: 6px solid var(--surface);
+  box-shadow: 0 18px 44px -14px rgba(20, 33, 29, .30);
   color: var(--faint);
   font: 400 11.5px/1 var(--f-mono);
   letter-spacing: .18em;
   text-transform: uppercase;
 }
+
 @media (max-width: 899px) {
-  .portrait { max-width: 320px; }
-  .portrait::before { inset: 10px -10px -10px 10px; }
+  .portrait img,
+  .portrait.is-empty::after { width: 220px; height: 220px; }
 }
 
 /* Focus strip */
