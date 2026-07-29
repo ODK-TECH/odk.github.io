@@ -21,7 +21,7 @@ Three files, no build step. Push to `main` and GitHub Pages serves it.
 
 Drop these in the repo root next to `index.html`:
 
-- `nana.jpg` — portrait, **square (1:1)**, ideally 1200×1200 or larger
+- `nana.jpg` — profile photo, **square (1:1)**. **Supplied** (cropped and centred for the circular avatar)
 - `THESIS.jpg` — mathematics performance project, 3:2 landscape. **Supplied** (schematic)
 - `PoultryTech.jpg` — poultry monitoring project, 3:2 landscape. **Supplied** (schematic)
 - `africare.jpg` — Africare project, 3:2 landscape. **Supplied** (refitted from your 1:1 original, nothing cropped)
@@ -35,7 +35,8 @@ Missing images fall back to a neutral placeholder block, so nothing breaks while
 
 **Every project image must be 3:2.** The card image box is locked to `aspect-ratio: 3 / 2`
 with `object-fit: cover`, so a 3:2 file displays whole at every screen size and anything
-else gets cropped to fit. The hero portrait box is 1:1, so `nana.jpg` should be square.
+else gets cropped to fit. The hero avatar is a 280px circle (220px on mobile), so `nana.jpg` must be square and
+centred on the face, since the circular mask clips the corners.
 
 `THESIS.jpg` and `PoultryTech.jpg` are schematic illustrations, not plots of results. They
 encode no accuracy, feature importance, mAP or confidence figures. Replace them with real
