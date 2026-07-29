@@ -21,16 +21,25 @@ Three files, no build step. Push to `main` and GitHub Pages serves it.
 
 Drop these in the repo root next to `index.html`:
 
-- `nana.jpg` — portrait, portrait orientation, ideally 1040×1300 or larger
-- `THESIS.jpg` — mathematics performance project, 3:2 landscape
-- `PoultryTech.jpg` — poultry monitoring project, 3:2 landscape
-- `africare.jpg` — Africare project, 3:2 landscape
-- `premix.jpg` — premix fuel dissertation, 3:2 landscape. Export `fig-4-5-forecast.png`
-  from the analysis script in the Premix-Fuel-Price-Analysis repo and crop it to 3:2
-- `mlworkflow.jpg` — breast cancer classifier, 3:2 landscape. A screenshot of the Streamlit
-  prediction form, or of the FastAPI `/docs` page, works well
+- `nana.jpg` — portrait, **square (1:1)**, ideally 1200×1200 or larger
+- `THESIS.jpg` — mathematics performance project, 3:2 landscape. **Supplied** (schematic)
+- `PoultryTech.jpg` — poultry monitoring project, 3:2 landscape. **Supplied** (schematic)
+- `africare.jpg` — Africare project, 3:2 landscape. **Supplied** (refitted from your 1:1 original, nothing cropped)
+- `premix.jpg` — premix fuel dissertation, 3:2 landscape. **Supplied.** Regenerate with
+  `analysis/make_premix_figure.py` in the Premix-Fuel-Price-Analysis repo
+- `mlworkflow.jpg` — breast cancer classifier, 3:2 landscape. **Supplied.** Real screenshot
+  of the Streamlit prediction form, cropped to the app column with the Streamlit Cloud
+  toolbar and deploy badge removed
 
 Missing images fall back to a neutral placeholder block, so nothing breaks while you gather them.
+
+**Every project image must be 3:2.** The card image box is locked to `aspect-ratio: 3 / 2`
+with `object-fit: cover`, so a 3:2 file displays whole at every screen size and anything
+else gets cropped to fit. The hero portrait box is 1:1, so `nana.jpg` should be square.
+
+`THESIS.jpg` and `PoultryTech.jpg` are schematic illustrations, not plots of results. They
+encode no accuracy, feature importance, mAP or confidence figures. Replace them with real
+output whenever you have it. Regenerate either with `make_thumbnails.py`.
 
 ## Adding your CV
 
